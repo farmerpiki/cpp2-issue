@@ -1,0 +1,16 @@
+export module pof;
+import personal;
+
+private_shit: type = {
+	io_context: u64;
+
+	operator=: (out this) = {
+		io_context = (42);
+	}
+}
+
+export handle: type = {
+	d: std::unique_ptr<private_shit> = cpp2_new<private_shit>();
+
+	operator=: (out this) = {}
+}

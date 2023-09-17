@@ -1,0 +1,13 @@
+export module personal;
+
+export read_regular_file: (path: std::filesystem::path) -> std::optional<std::string> = {
+  t: std::ifstream = path;
+  if !t.is_open() {
+    std::cerr << "failed to read file contents: (path)$\n";
+    return std::nullopt;
+  }
+  buffer: std::stringstream = ();
+  buffer << t.rdbuf();
+
+  return buffer.str();
+}
